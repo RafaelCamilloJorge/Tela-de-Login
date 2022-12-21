@@ -7,6 +7,7 @@ const eye2 = document.getElementById('eye2');
 const contaIncorreta = document.getElementById('conta-incorreta');
 
 
+
 function enviar() {
     if (login.value === 'rafael' && pass.value === '123') {
         // exibe a tela de "conectado"
@@ -19,6 +20,8 @@ function enviar() {
         pass.style.border = '2px solid red';
       }
 }
+
+
 function validaBotao(){
   if(login.value == '' || pass.value == ''){
     btn.disabled = true;
@@ -46,7 +49,11 @@ document.addEventListener("keypress", e =>{
     }
   });
 
+
+
 eye.addEventListener('click', showPass);
 eye2.addEventListener('click', hidePass);
 document.addEventListener('input', validaBotao);
 btn.addEventListener('click', enviar);
+
+

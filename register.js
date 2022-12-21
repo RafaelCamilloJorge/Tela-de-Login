@@ -11,6 +11,7 @@ const wrongPassword = document.getElementById('wrongPassword');
 const passwords = document.getElementById('passwords');
 const voltarLogin = document.getElementById('voltarLogin');
 const span = document.getElementById('span');
+const nome = localStorage.getItem('login');
 var x = 0;
 var y = 0;
 
@@ -44,6 +45,11 @@ function validaSenhas(){
 }
 
 
+function armazenaNome(){
+    localStorage.setItem('nome', login.value);
+}
+
+
 registrar.addEventListener('click', ()=>{
     span.innerHTML = ('Conta Criada Com Sucesso! bem vindo <br>' + login.value).toUpperCase();
     span.style.display = 'block';
@@ -58,9 +64,12 @@ document.addEventListener("keypress", e =>{
 
 
 confirmPass.addEventListener('input', validaSenhas);
+
 pass.addEventListener('input', validaSenhas);
 
 document.addEventListener('input', register);
+
+registrar.addEventListener('click', armazenaNome);
 
 masculino.addEventListener('click', function(){
     y++;
