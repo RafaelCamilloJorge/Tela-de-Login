@@ -44,13 +44,13 @@ function validaSenhas(){
 }
 
 
-registrar.addEventListener('click', function(){
+registrar.addEventListener('click', ()=>{
     span.innerHTML = ('Conta Criada Com Sucesso! bem vindo <br>' + login.value).toUpperCase();
     span.style.display = 'block';
     registrar.style.display = 'none';
 })
 
-document.addEventListener("keypress", function(e){
+document.addEventListener("keypress", e =>{
     if(e.key == 'Enter'){
       btn.click();
     }
@@ -74,8 +74,3 @@ feminino.addEventListener('click', function(){
 voltarLogin.addEventListener('click', function(){
     window.location.href= "login.html" ;
 });
-
-
-
-
-

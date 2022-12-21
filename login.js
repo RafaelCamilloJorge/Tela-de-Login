@@ -8,8 +8,6 @@ const contaIncorreta = document.getElementById('conta-incorreta');
 
 
 function enviar() {
-    console.log(login.value);
-    console.log(pass.value);
     if (login.value === 'rafael' && pass.value === '123') {
         // exibe a tela de "conectado"
         document.body.innerHTML = '<h1>Conectado Com Sucesso!</h1>';
@@ -21,18 +19,11 @@ function enviar() {
         pass.style.border = '2px solid red';
       }
 }
-
-document.addEventListener("keypress", function(e){
-  if(e.key == 'Enter'){
-    btn.click();
-  }
-});
-
-function validaBotao(e){
+function validaBotao(){
   if(login.value == '' || pass.value == ''){
     btn.disabled = true;
   }
-  if(login.value != '' && pass.value != ''){
+ else{
     btn.disabled = false;
   }
   }
@@ -48,6 +39,12 @@ function validaBotao(e){
     eye.style.display = 'block';
     eye2.style.display = 'none';
   }
+
+document.addEventListener("keypress", e =>{
+    if(e.key == 'Enter'){
+      btn.click();
+    }
+  });
 
 eye.addEventListener('click', showPass);
 eye2.addEventListener('click', hidePass);
