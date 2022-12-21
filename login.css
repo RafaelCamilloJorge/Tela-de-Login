@@ -1,0 +1,145 @@
+:root{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    justify-content: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+html{
+    margin: 0;
+    padding: 0;
+    background-image: radial-gradient(circle at 68.87% 101.84%, #ff6ebf 0, #ff63c8 8.33%, #ff59d1 16.67%, #ff4eda 25%, #f146e3 33.33%, #d640eb 41.67%, #b53cf2 50%, #8b3df9 58.33%, #4b41ff 66.67%, #0046ff 75%, #004bff 83.33%, #0050ff 91.67%, #0052ff 100%);
+}
+
+.elements{
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: 20vw;
+    height: 50vh;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+
+.main-conteiner{
+    margin-top: 50px;
+}
+
+.name{
+    padding:15px;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.password{
+    padding:15px;
+    border-radius: 10px;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.name::placeholder{
+    text-align: left;
+    color:black;
+}
+
+.name:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.password:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+
+.password::placeholder{
+    text-align: left;
+    color:black;
+}
+
+.password:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.text-login{
+    color:white;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 100px;
+    color: #21d4fd;
+}
+
+.enviar{
+    color:white;
+    margin-top: 20px;
+    background-color: #21d4fd;
+    border-radius: 10px;
+    width: 10.2vw;
+    height: 5.6vh;
+    box-shadow: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+
+
+.enviar:disabled{
+    background-color: rgba(255, 0, 0, 0.3);
+    cursor: not-allowed;
+    
+}
+
+img{
+    height: 20px;
+    width: 20px;
+    position:absolute;
+    top: 274px;
+    right: 100px;
+    cursor: pointer;
+    
+}
+
+#eye2{
+    display: none;
+}
+
+span{
+    color:#ff1414;
+    font-size: 13px;
+    display: none;
+}
+
+
+#show-hide{
+    width: 100%;
+}
+
+#register{
+    text-decoration: none;
+    color:white;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+    text-decoration-skip-ink: none;
+    background-color: #21d4fd;
+    border-radius: 10px;
+    padding-top: 14px;
+    font-size: 15px;
+    width: 10vw;
+    height: 3.55vh; 
+}
+
+
+
