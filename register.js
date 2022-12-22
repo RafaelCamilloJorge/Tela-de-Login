@@ -12,6 +12,7 @@ const passwords = document.getElementById('passwords');
 const voltarLogin = document.getElementById('voltarLogin');
 const span = document.getElementById('span');
 const nome = localStorage.getItem('login');
+const form = document.getElementById('form');
 var x = 0;
 var y = 0;
 
@@ -49,7 +50,8 @@ function validaSenhas(){
 function armazenaConta(){
     var newID = Number(localStorage.getItem('id'));
     if(localStorage.getItem('id') == null){
-        localStorage.setItem('id', 0);
+        localStorage.setItem('id', 1);
+        console.log(newID + 1);
         localStorage.setItem('nome' + Number(newID + 1), login.value);
         localStorage.setItem('senha' + Number(newID + 1), pass.value);
     }

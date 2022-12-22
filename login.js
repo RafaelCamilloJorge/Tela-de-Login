@@ -6,12 +6,13 @@ const eye = document.getElementById('eye');
 const eye2 = document.getElementById('eye2');
 const contaIncorreta = document.getElementById('conta-incorreta');
 let i = 0;
+var newID = Number(localStorage.getItem('id'));
 
 
 
 
 function encontraID(){
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i <= newID; i++) {
       if (login.value === localStorage.getItem('nome' + i, login.value) && pass.value === localStorage.getItem('senha' + i, pass.value)) {
         return i;
       }}
