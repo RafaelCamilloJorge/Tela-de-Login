@@ -15,8 +15,10 @@ const span = document.getElementById('span');
 const nome = localStorage.getItem('login');
 const form = document.getElementById('form');
 const textRegister = document.getElementById('text-register');
+const usuarioExistente = document.getElementById('usuarioExistente');
 var x = 0;
 var y = 0;
+let i;
 var newID = Number(localStorage.getItem('id'));
 
 
@@ -69,17 +71,23 @@ function armazenaConta(){
 }
 
 function verificaExistencia(){
-        for (let i = 0; i <= newID; i++) {
+        for (i = 0; i <= newID; i++) {
           if (login.value === localStorage.getItem('nome' + i, login.value)) {
-            console.log('ERRO');
-          }}
+            console.log('Usuario ja existente');
+            login.style.border = 'solid red 2px';
+            usuarioExistente.style.display = 'block';
+            login.style.margin = '2px';
+            return 0;
+          }
+        }
+
+    form.innerHTML = ('<h1 id="contaCriada">Conta Criada Com Sucesso!<br>').toUpperCase();
+    form.style.color = 'white';
+        
 }
 
 
-registrar.addEventListener('click', ()=>{
-    form.innerHTML = ('<h1 id="contaCriada">Conta Criada Com Sucesso!<br>').toUpperCase();
-    form.style.color = 'white';
-})
+
 
 document.addEventListener("keypress", e =>{
     if(e.key == 'Enter'){
@@ -110,6 +118,6 @@ feminino.addEventListener('click', function(){
 
 
 voltarLogin.addEventListener('click', function(){
-    window.location.href= "login.html" ;
+    window.location.href= "login.html";
 });
 
