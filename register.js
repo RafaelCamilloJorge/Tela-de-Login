@@ -10,11 +10,14 @@ const sexo = document.getElementById('sexo');
 const wrongPassword = document.getElementById('wrongPassword');
 const passwords = document.getElementById('passwords');
 const voltarLogin = document.getElementById('voltarLogin');
+const voltarLogin1 = document.getElementById('VOLTARLOGIN');
 const span = document.getElementById('span');
 const nome = localStorage.getItem('login');
 const form = document.getElementById('form');
+const textRegister = document.getElementById('text-register');
 var x = 0;
 var y = 0;
+var newID = Number(localStorage.getItem('id'));
 
 
 function register(){
@@ -65,13 +68,17 @@ function armazenaConta(){
     }
 }
 
-
+function verificaExistencia(){
+        for (let i = 0; i <= newID; i++) {
+          if (login.value === localStorage.getItem('nome' + i, login.value)) {
+            console.log('ERRO');
+          }}
+}
 
 
 registrar.addEventListener('click', ()=>{
-    span.innerHTML = ('Conta Criada Com Sucesso! bem vindo <br>' + login.value).toUpperCase();
-    span.style.display = 'block';
-    registrar.style.display = 'none';
+    form.innerHTML = ('<h1 id="contaCriada">Conta Criada Com Sucesso!<br>').toUpperCase();
+    form.style.color = 'white';
 })
 
 document.addEventListener("keypress", e =>{
@@ -87,8 +94,11 @@ pass.addEventListener('input', validaSenhas);
 
 document.addEventListener('input', register);
 
+registrar.addEventListener('click', verificaExistencia);
 
 registrar.addEventListener('click', armazenaConta);
+
+
 
 masculino.addEventListener('click', function(){
     y++;
@@ -102,3 +112,4 @@ feminino.addEventListener('click', function(){
 voltarLogin.addEventListener('click', function(){
     window.location.href= "login.html" ;
 });
+

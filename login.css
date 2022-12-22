@@ -58,6 +58,10 @@ html{
     outline: 0;
 }
 
+.name:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
 .password:focus{
     box-shadow: 0 0 0 0;
     outline: 0;
