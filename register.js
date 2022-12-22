@@ -14,7 +14,6 @@ const span = document.getElementById('span');
 const nome = localStorage.getItem('login');
 var x = 0;
 var y = 0;
-var id = 0;
 
 
 function register(){
@@ -46,14 +45,24 @@ function validaSenhas(){
 }
 
 
-function armazenaNome(){
-    id++;
-    localStorage.setItem('nome' + id, login.value);
+
+function armazenaConta(){
+    if(localStorage.getItem('id') == null){
+        localStorage.setItem('id', 0);
+        localStorage.setItem('nome' + id, login.value);
+        localStorage.setItem('senha' + id, pass.value);
+    }
+    if(localStorage.getItem('id') >= 0){
+        localStorage.getItem('id');
+        var newID = Number(localStorage.getItem('id'));
+        localStorage.setItem('id', newID + 1);
+        console.log(newID + 1);
+        localStorage.setItem('nome' + Number(newID + 1), login.value);
+        localStorage.setItem('senha' + Number(newID + 1), pass.value);
+    }
 }
 
-function armazenaSenha(){
-    localStorage.setItem('senha' + id, pass.value);
-}
+
 
 
 registrar.addEventListener('click', ()=>{
@@ -75,9 +84,8 @@ pass.addEventListener('input', validaSenhas);
 
 document.addEventListener('input', register);
 
-registrar.addEventListener('click', armazenaNome);
 
-registrar.addEventListener('click', armazenaSenha);
+registrar.addEventListener('click', armazenaConta);
 
 masculino.addEventListener('click', function(){
     y++;

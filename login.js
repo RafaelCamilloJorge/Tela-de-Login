@@ -5,23 +5,34 @@ const conteiner = document.getElementById('main-conteiner');
 const eye = document.getElementById('eye');
 const eye2 = document.getElementById('eye2');
 const contaIncorreta = document.getElementById('conta-incorreta');
+let i = 0;
 
 
+
+
+function encontraID(){
+    for (i = 0; i < 10; i++) {
+      if (login.value === localStorage.getItem('nome' + i, login.value) && pass.value === localStorage.getItem('senha' + i, pass.value)) {
+        return i;
+      }}
+}
 
 function enviar() {
-    if (login.value === localStorage.getItem('nome', login.value) && pass.value === localStorage.getItem('senha', pass.value)) {
-        // exibe a tela de "conectado"
-        document.body.innerHTML = '<h1>Conectado Com Sucesso!</h1>';
+    if (login.value === localStorage.getItem('nome' + i, login.value) && pass.value === localStorage.getItem('senha' + i, pass.value)) {
 
-      } else {
-        // exibe uma mensagem de erro
-        login.value = '';
-        pass.value = '';
-        contaIncorreta.style.display = 'block';
-        login.style.border = '2px solid red';
-        pass.style.border = '2px solid red';
-      }
-}
+      
+      // exibe a tela de "conectado"
+      document.body.innerHTML = '<h1>Conectado Com Sucesso!</h1>';
+    }else {
+      // exibe uma mensagem de erro
+      console.log(localStorage.getItem('nome' + i, login.value));
+      login.value = '';
+      pass.value = '';
+      contaIncorreta.style.display = 'block';
+      login.style.border = '2px solid red';
+      pass.style.border = '2px solid red';
+    }    
+  }
 
 
 function validaBotao(){
@@ -52,7 +63,7 @@ document.addEventListener("keypress", e =>{
   });
 
 
-
+btn.addEventListener('click', encontraID);
 eye.addEventListener('click', showPass);
 eye2.addEventListener('click', hidePass);
 document.addEventListener('input', validaBotao);
