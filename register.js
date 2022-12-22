@@ -14,6 +14,7 @@ const span = document.getElementById('span');
 const nome = localStorage.getItem('login');
 var x = 0;
 var y = 0;
+var id = 0;
 
 
 function register(){
@@ -46,7 +47,12 @@ function validaSenhas(){
 
 
 function armazenaNome(){
-    localStorage.setItem('nome', login.value);
+    id++;
+    localStorage.setItem('nome' + id, login.value);
+}
+
+function armazenaSenha(){
+    localStorage.setItem('senha' + id, pass.value);
 }
 
 
@@ -58,7 +64,7 @@ registrar.addEventListener('click', ()=>{
 
 document.addEventListener("keypress", e =>{
     if(e.key == 'Enter'){
-      btn.click();
+      registrar.click();
     }
   });
 
@@ -70,6 +76,8 @@ pass.addEventListener('input', validaSenhas);
 document.addEventListener('input', register);
 
 registrar.addEventListener('click', armazenaNome);
+
+registrar.addEventListener('click', armazenaSenha);
 
 masculino.addEventListener('click', function(){
     y++;

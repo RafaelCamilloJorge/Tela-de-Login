@@ -9,12 +9,14 @@ const contaIncorreta = document.getElementById('conta-incorreta');
 
 
 function enviar() {
-    if (login.value === 'rafael' && pass.value === '123') {
+    if (login.value === localStorage.getItem('nome', login.value) && pass.value === localStorage.getItem('senha', pass.value)) {
         // exibe a tela de "conectado"
         document.body.innerHTML = '<h1>Conectado Com Sucesso!</h1>';
 
       } else {
         // exibe uma mensagem de erro
+        login.value = '';
+        pass.value = '';
         contaIncorreta.style.display = 'block';
         login.style.border = '2px solid red';
         pass.style.border = '2px solid red';
