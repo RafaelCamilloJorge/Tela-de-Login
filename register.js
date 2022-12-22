@@ -47,14 +47,15 @@ function validaSenhas(){
 
 
 function armazenaConta(){
+    var newID = Number(localStorage.getItem('id'));
     if(localStorage.getItem('id') == null){
         localStorage.setItem('id', 0);
-        localStorage.setItem('nome' + id, login.value);
-        localStorage.setItem('senha' + id, pass.value);
+        localStorage.setItem('nome' + Number(newID + 1), login.value);
+        localStorage.setItem('senha' + Number(newID + 1), pass.value);
     }
     if(localStorage.getItem('id') >= 0){
         localStorage.getItem('id');
-        var newID = Number(localStorage.getItem('id'));
+
         localStorage.setItem('id', newID + 1);
         console.log(newID + 1);
         localStorage.setItem('nome' + Number(newID + 1), login.value);
