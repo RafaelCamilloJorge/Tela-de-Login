@@ -56,7 +56,7 @@ function armazenaConta(){
     var newID = Number(localStorage.getItem('id'));
     if(localStorage.getItem('id') == null){
         localStorage.setItem('id', 1);
-        console.log(newID + 1);
+        console.log(newID);
         localStorage.setItem('nome' + Number(newID + 1), login.value);
         localStorage.setItem('senha' + Number(newID + 1), pass.value);
     }
@@ -72,18 +72,22 @@ function armazenaConta(){
 
 function verificaExistencia(){
         for (i = 0; i <= newID; i++) {
-          if (login.value === localStorage.getItem('nome' + i, login.value)) {
+          if (login.value == localStorage.getItem('nome' + i, login.value)){
             console.log('Usuario ja existente');
+            localStorage.removeItem('nome' + newID, login.value);
+            localStorage.removeItem('senha' + newID, pass.value);
             login.style.border = 'solid red 2px';
             usuarioExistente.style.display = 'block';
             login.style.margin = '2px';
+            registrar.disabled = true;
             return 0;
           }
         }
-
-    form.innerHTML = ('<h1 id="contaCriada">Conta Criada Com Sucesso!<br>').toUpperCase();
-    form.style.color = 'white';
         
+            if (login.value != localStorage.getItem('nome' + i, login.value)){
+            form.innerHTML = ('<h1 id="contaCriada">Conta Criada Com Sucesso!<br>').toUpperCase();
+            form.style.color = 'white';
+        }
 }
 
 
@@ -106,8 +110,6 @@ registrar.addEventListener('click', verificaExistencia);
 
 registrar.addEventListener('click', armazenaConta);
 
-
-
 masculino.addEventListener('click', function(){
     y++;
 })
@@ -115,7 +117,6 @@ masculino.addEventListener('click', function(){
 feminino.addEventListener('click', function(){
     x++;
 })
-
 
 voltarLogin.addEventListener('click', function(){
     window.location.href= "login.html";
