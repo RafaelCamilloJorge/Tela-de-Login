@@ -20,6 +20,7 @@ var x = 0;
 var y = 0;
 let i;
 var newID = Number(localStorage.getItem('id'));
+var existe = 0;
 
 
 function register(){
@@ -54,50 +55,42 @@ function validaSenhas(){
 
 function armazenaConta(){
     var newID = Number(localStorage.getItem('id'));
-    if(localStorage.getItem('id') == null){
+    if(localStorage.getItem('id') == null && existe < 1){
+        console.log('teste' + existe);
         localStorage.setItem('id', 1);
-        console.log(newID);
         localStorage.setItem('nome' + Number(newID + 1), login.value);
         localStorage.setItem('senha' + Number(newID + 1), pass.value);
     }
-    if(localStorage.getItem('id') >= 0){
+    if(localStorage.getItem('id') >= 0 && existe < 1){
         localStorage.getItem('id');
-
+        console.log('teste' + existe);
         localStorage.setItem('id', newID + 1);
-        console.log(newID + 1);
         localStorage.setItem('nome' + Number(newID + 1), login.value);
         localStorage.setItem('senha' + Number(newID + 1), pass.value);
     }
+    existe = 0;
 }
 
 function verificaExistencia(){
         for (i = 0; i <= newID; i++) {
           if (login.value == localStorage.getItem('nome' + i, login.value)){
-            console.log('Usuario ja existente');
-            localStorage.removeItem('nome' + newID, login.value);
-            localStorage.removeItem('senha' + newID, pass.value);
             login.style.border = 'solid red 2px';
             usuarioExistente.style.display = 'block';
             login.style.margin = '2px';
             registrar.disabled = true;
-            return 0;
+            existe++;
+            console.log(existe);
+            return existe;
           }
         }
         
-            if (login.value != localStorage.getItem('nome' + i, login.value)){
+            if (login.value != localStorage.getItem('nome' + i, login.value) && existe < 1){
             form.innerHTML = ('<h1 id="contaCriada">Conta Criada Com Sucesso!<br>').toUpperCase();
             form.style.color = 'white';
         }
 }
 
 
-
-
-document.addEventListener("keypress", e =>{
-    if(e.key == 'Enter'){
-      registrar.click();
-    }
-  });
 
 
 confirmPass.addEventListener('input', validaSenhas);
